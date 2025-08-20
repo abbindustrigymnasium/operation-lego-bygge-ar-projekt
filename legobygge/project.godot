@@ -13,3 +13,10 @@ config_version=5
 config/name="Legobygge"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[xr]
+
+openxr/enabled=true
+openxr/extensions/hand_tracking=true
+openxr/extensions/hand_interaction_profile=true
+shaders/enabled=true
