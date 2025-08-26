@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Legobygge"
+run/main_scene="uid://bp8dtion7cgiw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
 
 [xr]
 

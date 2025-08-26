@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp8dtion7cgiw"]
+[gd_scene load_steps=17 format=3 uid="uid://bp8dtion7cgiw"]
 
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="2_1bvp3"]
@@ -8,10 +8,20 @@
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="4_272bh"]
 [ext_resource type="Script" uid="uid://w172gapci7h5" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="4_kek77"]
 [ext_resource type="Script" uid="uid://c7eip22y7170k" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="11_efxa6"]
+
+[sub_resource type="Resource" id="Resource_5vw27"]
+script = ExtResource("3_5vw27")
+pose = ExtResource("4_272bh")
+action_type = 1
+action_name = "pinch"
+metadata/_custom_type_script = "uid://cx5804jym46dc"
 
 [sub_resource type="Resource" id="Resource_efxa6"]
 script = ExtResource("4_kek77")
-actions = Array[ExtResource("3_5vw27")]([])
+actions = Array[ExtResource("3_5vw27")]([SubResource("Resource_5vw27")])
 metadata/_custom_type_script = "uid://w172gapci7h5"
 
 [sub_resource type="Resource" id="Resource_kek77"]
@@ -33,34 +43,60 @@ background_mode = 2
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
-[node name="lefthand" type="XRNode3D" parent="XROrigin3D"]
+[node name="LeftHand" type="XRNode3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 tracker = &"left_hand"
 
-[node name="LeftHandHumanoid2" parent="XROrigin3D/lefthand" instance=ExtResource("1_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.601463, 0.910275, 0)
+[node name="LeftHandHumanoid2" parent="XROrigin3D/LeftHand" instance=ExtResource("1_h2yge")]
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/lefthand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/LeftHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
 
-[node name="HandPoseController2" parent="XROrigin3D/lefthand/LeftHandHumanoid2" instance=ExtResource("2_1bvp3")]
+[node name="HandPoseController2" parent="XROrigin3D/LeftHand/LeftHandHumanoid2" instance=ExtResource("2_1bvp3")]
 controller_pose_type = 0
 controller_action_map = SubResource("Resource_efxa6")
 hand_pose_set = SubResource("Resource_kek77")
 
-[node name="righthand" type="XRNode3D" parent="XROrigin3D"]
+[node name="RightHand" type="XRNode3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 tracker = &"right_hand"
 
-[node name="RightHandHumanoid2" parent="XROrigin3D/righthand" instance=ExtResource("3_lquwl")]
+[node name="RightHandHumanoid2" parent="XROrigin3D/RightHand" instance=ExtResource("3_lquwl")]
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/righthand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/RightHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
 hand_tracker = &"/user/hand_tracker/right"
 
-[node name="HandPoseController" parent="XROrigin3D/righthand/RightHandHumanoid2" instance=ExtResource("2_1bvp3")]
+[node name="HandPoseController" parent="XROrigin3D/RightHand/RightHandHumanoid2" instance=ExtResource("2_1bvp3")]
+controller_tracker_name = "/user/hand_pose_controller/right"
 hand_pose_set = SubResource("Resource_4c57u")
+
+[node name="RightHandVirtualController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+tracker = &"/user/hand_pose_controller/right"
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHandVirtualController" instance=ExtResource("9_kek77")]
+pickup_axis_action = "pinch"
+grab_distance = 0.1
+
+[node name="LeftHandVirtualController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+tracker = &"/user/hand_pose_controller/left"
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHandVirtualController" instance=ExtResource("9_kek77")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7dm0k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[editable path="XROrigin3D/lefthand/LeftHandHumanoid2"]
-[editable path="XROrigin3D/righthand/RightHandHumanoid2"]
+[node name="StartXR" parent="." instance=ExtResource("10_4c57u")]
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="PickableObject" parent="Objects" instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+
+[node name="PickableObject2" parent="Objects" instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
+
+[editable path="XROrigin3D/LeftHand/LeftHandHumanoid2"]
+[editable path="XROrigin3D/RightHand/RightHandHumanoid2"]
