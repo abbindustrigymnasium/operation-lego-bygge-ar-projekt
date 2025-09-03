@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://delh7tk6rbcqo"]
+
+[ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_gougc"]
+[ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="2_1a2f8"]
+[ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="2_ubp34"]
+[ext_resource type="Script" uid="uid://bv3qn5p204mnc" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="3_nj6l2"]
+[ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="4_ixt5h"]
+[ext_resource type="Script" uid="uid://bayyxb5d13oou" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="5_7jgew"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_nj6l2"]
+[ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="8_7jgew"]
+[ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="9_moser"]
+
+[sub_resource type="Resource" id="Resource_moser"]
+script = ExtResource("3_nj6l2")
+pose = ExtResource("4_ixt5h")
+action_type = 1
+action_name = "grip"
+metadata/_custom_type_script = "uid://bv3qn5p204mnc"
+
+[sub_resource type="Resource" id="Resource_rohou"]
+script = ExtResource("5_7jgew")
+actions = Array[ExtResource("3_nj6l2")]([SubResource("Resource_moser")])
+metadata/_custom_type_script = "uid://bayyxb5d13oou"
+
+[node name="XrPlayerOrigin" type="XROrigin3D"]
+transform = Transform3D(0.997382, 0.0393574, 0.0606576, -0.0230137, 0.968049, -0.249704, -0.0685473, 0.247654, 0.966421, 0, 0, 0)
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(0.998451, -0.0370899, 0.0414687, 0.011981, 0.871217, 0.490753, -0.0543302, -0.489496, 0.870311, 0, 0.5, 0)
+fov = 100.0
+
+[node name="LeftTrackedHand" type="XRNode3D" parent="."]
+tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
+
+[node name="LeftHandHumanoid2" parent="LeftTrackedHand" instance=ExtResource("1_gougc")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftTrackedHand/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
+
+[node name="HandPoseController" parent="LeftTrackedHand" instance=ExtResource("2_ubp34")]
+controller_action_map = SubResource("Resource_rohou")
+
+[node name="RightTrackedHand" type="XRNode3D" parent="."]
+tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
+
+[node name="RightHandHumanoid2" parent="RightTrackedHand" instance=ExtResource("2_1a2f8")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightTrackedHand/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
+hand_tracker = &"/user/hand_tracker/right"
+
+[node name="HandPoseController" parent="RightTrackedHand" instance=ExtResource("2_ubp34")]
+controller_tracker_name = "/user/hand_pose_controller/right"
+controller_action_map = SubResource("Resource_rohou")
+hand_tracker_name = "/user/hand_tracker/right"
+
+[node name="LeftVirtualController" type="XRController3D" parent="."]
+tracker = &"/user/hand_pose_controller/left"
+
+[node name="FunctionPickup" parent="LeftVirtualController" instance=ExtResource("7_nj6l2")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="LeftPhysicsHand" parent="LeftVirtualController" instance=ExtResource("8_7jgew")]
+visible = false
+
+[node name="RightVirtualController" type="XRController3D" parent="."]
+tracker = &"/user/hand_pose_controller/right"
+
+[node name="FunctionPickup" parent="RightVirtualController" instance=ExtResource("7_nj6l2")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="RightPhysicsHand" parent="RightVirtualController" instance=ExtResource("9_moser")]
+visible = false
+
+[editable path="LeftTrackedHand/LeftHandHumanoid2"]
+[editable path="RightTrackedHand/RightHandHumanoid2"]

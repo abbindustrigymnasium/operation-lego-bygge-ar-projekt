@@ -88,6 +88,7 @@ const DEFAULT_LAYER := 0b0000_0000_0000_0001_0000_0000_0000_0000
 ## Require pick-by to be in the specified group
 @export var picked_by_require : String = ""
 
+var time_passed := 0.0
 
 ## If true, the object can be picked up at range
 var can_ranged_grab: bool = true
@@ -254,6 +255,14 @@ func drop_and_free():
 	drop()
 	queue_free()
 
+func _process(delta: float) -> void:
+	time_passed += delta
+	if time_passed >= 1.0:
+		time_passed = 0.0
+		var x_pos = global_transform.origin.x
+		var y_pos = global_transform.origin.y
+		var z_pos = global_transform.origin.z
+		print(is_picked_up())
 
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
