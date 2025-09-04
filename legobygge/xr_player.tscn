@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://delh7tk6rbcqo"]
+[gd_scene load_steps=14 format=3 uid="uid://delh7tk6rbcqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_gougc"]
+[ext_resource type="Script" uid="uid://ddixnyxklyg5m" path="res://xr_player.gd" id="1_rohou"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="2_1a2f8"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="2_ubp34"]
 [ext_resource type="Script" uid="uid://bv3qn5p204mnc" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="3_nj6l2"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_nj6l2"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="8_7jgew"]
 [ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="9_moser"]
+[ext_resource type="PackedScene" uid="uid://y6f6npx5liub" path="res://test_spatial.tscn" id="11_24adu"]
 
 [sub_resource type="Resource" id="Resource_moser"]
 script = ExtResource("3_nj6l2")
@@ -25,6 +27,7 @@ metadata/_custom_type_script = "uid://bayyxb5d13oou"
 [node name="XrPlayerOrigin" type="XROrigin3D"]
 transform = Transform3D(0.997382, 0.0393574, 0.0606576, -0.0230137, 0.968049, -0.249704, -0.0685473, 0.247654, 0.966421, 0, 0, 0)
 current = true
+script = ExtResource("1_rohou")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(0.998451, -0.0370899, 0.0414687, 0.011981, 0.871217, 0.490753, -0.0543302, -0.489496, 0.870311, 0, 0.5, 0)
@@ -74,6 +77,12 @@ ranged_enable = false
 
 [node name="RightPhysicsHand" parent="RightVirtualController" instance=ExtResource("9_moser")]
 visible = false
+
+[node name="OpenXRFbSceneManager" type="OpenXRFbSceneManager" parent="."]
+default_scene = ExtResource("11_24adu")
+
+[connection signal="openxr_fb_scene_capture_completed" from="OpenXRFbSceneManager" to="." method="_scene_capture_completed"]
+[connection signal="openxr_fb_scene_data_missing" from="OpenXRFbSceneManager" to="." method="_scene_data_missing"]
 
 [editable path="LeftTrackedHand/LeftHandHumanoid2"]
 [editable path="RightTrackedHand/RightHandHumanoid2"]
