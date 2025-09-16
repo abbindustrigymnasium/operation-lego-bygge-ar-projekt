@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://be1j5dx4g4wm5"]
+
+[ext_resource type="Script" uid="uid://c7arctjqwvssr" path="res://Scripts/texture_catcher.gd" id="1_ii8y5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_au063"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TextureCatcher" type="Node3D"]
+script = ExtResource("1_ii8y5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(516, 380)
+texture = SubResource("ViewportTexture_au063")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.563958, 0, -3.73541)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02756, 1.6893, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89713, 1.48815, 0)

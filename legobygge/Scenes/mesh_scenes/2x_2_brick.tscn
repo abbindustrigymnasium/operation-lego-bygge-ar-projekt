@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx1etv172slpx"]
+
+[ext_resource type="ArrayMesh" uid="uid://dc5ucqomy8f1j" path="res://assets/Mesh/2x2.mesh" id="1_arn2u"]
+
+[node name="2x2 BRICK" type="Node3D"]
+
+[node name="<STL_BINARY>" type="Node3D" parent="."]
+
+[node name="node" type="MeshInstance3D" parent="<STL_BINARY>"]
+mesh = ExtResource("1_arn2u")
+skeleton = NodePath("")
