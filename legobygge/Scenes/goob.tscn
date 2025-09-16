@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwyo2p2v5uwiq"]
+
+[ext_resource type="PackedScene" uid="uid://be1j5dx4g4wm5" path="res://Scenes/texture_catcher.tscn" id="1_bh66f"]
+[ext_resource type="ArrayMesh" uid="uid://dc5ucqomy8f1j" path="res://assets/Mesh/2x2.mesh" id="2_twjx6"]
+
+[node name="Goob" type="Node"]
+
+[node name="TextureCatcher" parent="." instance=ExtResource("1_bh66f")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh_to_snapshot = ExtResource("2_twjx6")
+snapshot_name = "2x2"
