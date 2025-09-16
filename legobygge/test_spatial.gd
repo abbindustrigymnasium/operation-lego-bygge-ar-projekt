@@ -5,7 +5,8 @@ extends StaticBody3D
 func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 	var semantic_labels: PackedStringArray = entity.get_semantic_labels()
 	
-	if semantic_labels.count("table") == 0 and semantic_labels.count("floor") == 0:
+	print(semantic_labels)
+	if semantic_labels.count("table") == 0 and semantic_labels.count("floor") == 0 and semantic_labels.count("wall_face") == 0 and semantic_labels.count("invisible_wall_face") == 0:
 		return
 
 	label.text = semantic_labels[0]
