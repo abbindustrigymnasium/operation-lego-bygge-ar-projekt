@@ -12,7 +12,7 @@ func _scene_data_missing() -> void:
 func _scene_capture_completed(success: bool) -> void:
 	if success == false:
 		return
-
+	
 	# Delete any existing anchors, since the user may have changed them.
 	if scene_manager.are_scene_anchors_created():
 		scene_manager.remove_scene_anchors()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://delh7tk6rbcqo"]
+[gd_scene load_steps=20 format=3 uid="uid://delh7tk6rbcqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_gougc"]
 [ext_resource type="Script" uid="uid://ddixnyxklyg5m" path="res://xr_player.gd" id="1_rohou"]
@@ -9,9 +9,14 @@
 [ext_resource type="Script" uid="uid://bayyxb5d13oou" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="5_7jgew"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_nj6l2"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="8_7jgew"]
+[ext_resource type="Script" uid="uid://b07nfpy4o6ecl" path="res://left_virtual_controller.gd" id="8_ll232"]
 [ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="9_moser"]
 [ext_resource type="PackedScene" uid="uid://y6f6npx5liub" path="res://test_spatial.tscn" id="11_24adu"]
+[ext_resource type="Script" uid="uid://dvchw1886a22j" path="res://right_virtual_controller.gd" id="11_rus62"]
 [ext_resource type="PackedScene" uid="uid://yfumnjiupmpd" path="res://Grabcube.tscn" id="12_24adu"]
+[ext_resource type="Script" uid="uid://0k773u7d488c" path="res://open_xr_fb_scene_manager.gd" id="12_lxryl"]
+[ext_resource type="PackedScene" uid="uid://cvf6e0m6fawxo" path="res://spatial_anchor.tscn" id="12_tp5n2"]
+[ext_resource type="Script" uid="uid://d2u0015y26np7" path="res://lego_house.gd" id="13_lxryl"]
 
 [sub_resource type="Resource" id="Resource_moser"]
 script = ExtResource("3_nj6l2")
@@ -61,6 +66,7 @@ hand_tracker_name = "/user/hand_tracker/right"
 
 [node name="LeftVirtualController" type="XRController3D" parent="."]
 tracker = &"/user/hand_pose_controller/left"
+script = ExtResource("8_ll232")
 
 [node name="FunctionPickup" parent="LeftVirtualController" instance=ExtResource("7_nj6l2")]
 grab_distance = 0.1
@@ -71,6 +77,7 @@ visible = false
 
 [node name="RightVirtualController" type="XRController3D" parent="."]
 tracker = &"/user/hand_pose_controller/right"
+script = ExtResource("11_rus62")
 
 [node name="FunctionPickup" parent="RightVirtualController" instance=ExtResource("7_nj6l2")]
 grab_distance = 0.1
@@ -81,8 +88,13 @@ visible = false
 
 [node name="OpenXRFbSceneManager" type="OpenXRFbSceneManager" parent="."]
 default_scene = ExtResource("11_24adu")
+script = ExtResource("12_lxryl")
+
+[node name="OpenXRFbSpatialAnchorManager" type="OpenXRFbSpatialAnchorManager" parent="."]
+scene = ExtResource("12_tp5n2")
 
 [node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("13_lxryl")
 
 [node name="GrabCube" parent="Node3D" instance=ExtResource("12_24adu")]
 transform = Transform3D(1, -1.86265e-09, -7.45058e-09, 1.86265e-09, 1, 0, 7.45058e-09, 0, 1, -0.0230137, 2.37707, 1.2922)

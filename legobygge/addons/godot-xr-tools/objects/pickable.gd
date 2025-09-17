@@ -124,6 +124,7 @@ func is_xr_class(name : String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.connect("found_table", Callable(self, "_on_found_table"))
 	# Get all grab points
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint
@@ -262,7 +263,6 @@ func _process(delta: float) -> void:
 		var x_pos = global_transform.origin.x
 		var y_pos = global_transform.origin.y
 		var z_pos = global_transform.origin.z
-		print(is_picked_up())
 
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
@@ -446,3 +446,11 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+	
+
+func _on_found_table(pos: Vector3) -> void:
+	print("pos", pos)
+	print("global_pos before" , global_position)
+	global_position = pos
+	print("set global_pos to ", pos)
+	global_position.y += 0.5
