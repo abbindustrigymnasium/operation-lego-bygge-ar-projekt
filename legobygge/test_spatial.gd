@@ -26,7 +26,15 @@ func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 		new_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		new_mat.albedo_color = Color(1, 1, 1, 0.5)
 		mesh_instance.material_override = new_mat
-		add_child(mesh_instance)
+		print("running compare function...")
+		print("mesh instance global pos: ", mesh_instance.global_position)
+		var new_closest_table_has_been_set = Globals.compare_table_distance_set_variable(mesh_instance)
+		print("compare function result, ", new_closest_table_has_been_set)
+		if new_closest_table_has_been_set:
+			print("Created Table Mesh")
+			add_child(mesh_instance)
+		else:
+			mesh_instance.queue_free()
 	print("found table ", semantic_labels.count("table") > 0 and not found_table)
 	if semantic_labels.count("table") > 0 and not found_table:
 		print("found table", found_table)
