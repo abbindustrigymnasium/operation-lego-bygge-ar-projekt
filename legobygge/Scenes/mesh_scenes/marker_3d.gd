@@ -1,8 +1,9 @@
 extends Marker3D
-var required_type = "2x2"
 @export var required_brick_type: String
 @export var surface_index: int
+@export var layer_index: int
 var occupied: bool = false
+# var surface_index = 25
 
 func try_place(player_brick: Node3D) -> bool:
 	if occupied:
@@ -19,3 +20,6 @@ func try_place(player_brick: Node3D) -> bool:
 		occupied = true
 		return true
 	return false
+
+func _ready() -> void:
+	add_to_group("snap_markers")
