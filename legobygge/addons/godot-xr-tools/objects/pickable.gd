@@ -2,6 +2,21 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
+### CUSTOM STUFFZ ###
+var has_not_moved = true
+var delta_sum = 0.0
+
+func _process(delta: float) -> void:
+	delta_sum += delta
+	if delta_sum >= 1.0:
+		delta_sum = 0.0
+		print(global_position)
+	if has_not_moved and Globals.closest_table_mesh:
+		has_not_moved = false
+		global_position = Globals.closest_table_mesh.global_position
+		global_position.y += 1.0
+
+### END OF CUSTOM STUFFZ ###
 
 ## XR Tools Pickable Object
 ##
@@ -255,14 +270,6 @@ func drop():
 func drop_and_free():
 	drop()
 	queue_free()
-
-func _process(delta: float) -> void:
-	time_passed += delta
-	if time_passed >= 1.0:
-		time_passed = 0.0
-		var x_pos = global_transform.origin.x
-		var y_pos = global_transform.origin.y
-		var z_pos = global_transform.origin.z
 
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
