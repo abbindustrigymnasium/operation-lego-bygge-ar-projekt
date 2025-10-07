@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6mgnsslnunn"]
+[gd_scene load_steps=7 format=3 uid="uid://y6mgnsslnunn"]
 
 [ext_resource type="ArrayMesh" uid="uid://dtuqro5bayhh7" path="res://lego_game_house.obj" id="1_iyn27"]
 [ext_resource type="Script" uid="uid://bh4wdxxaofmtm" path="res://Scenes/mesh_scenes/marker_3d.gd" id="2_b02ko"]
 [ext_resource type="Script" uid="uid://4pas2rne2q20" path="res://Scenes/mesh_scenes/ghost_mesh.gd" id="2_ie3tg"]
 [ext_resource type="Material" uid="uid://esqpw1fkkmi" path="res://assets/Textures/transparent_material_3d.tres" id="3_g80nc"]
 [ext_resource type="Material" uid="uid://c6fselq2q22py" path="res://assets/Textures/invisible_material_3d.tres" id="4_gfk5j"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_gfk5j"]
 
 [node name="Blueprint" type="Node3D"]
 script = ExtResource("2_ie3tg")
@@ -51,6 +52,11 @@ script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
 surface_index = 29
 layer_index = 1
+
+[node name="SnapZone" parent="GhostMesh/Marker3D(2x2)" instance=ExtResource("6_gfk5j")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74227e-09, 0.2, 0, -0.2, -8.74227e-09, -0.00792533, -0.00487684, 0.00912892)
+grab_distance = 0.15
+snap_mode = 1
 
 [node name="Marker3D2(2x2)" type="Marker3D" parent="GhostMesh"]
 transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 24.6536, 14.3043, 7.35063)

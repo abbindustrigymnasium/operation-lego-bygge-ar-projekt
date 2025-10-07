@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://delh7tk6rbcqo"]
+[gd_scene load_steps=25 format=3 uid="uid://delh7tk6rbcqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_gougc"]
 [ext_resource type="Script" uid="uid://ddixnyxklyg5m" path="res://xr_player.gd" id="1_rohou"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bv3qn5p204mnc" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="3_nj6l2"]
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="4_ixt5h"]
 [ext_resource type="Script" uid="uid://bayyxb5d13oou" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="5_7jgew"]
+[ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="6_0s6fq"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_nj6l2"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="8_7jgew"]
 [ext_resource type="Script" uid="uid://b07nfpy4o6ecl" path="res://left_virtual_controller.gd" id="8_ll232"]
@@ -28,9 +29,16 @@ action_type = 1
 action_name = "grip"
 metadata/_custom_type_script = "uid://bv3qn5p204mnc"
 
+[sub_resource type="Resource" id="Resource_1rr4a"]
+script = ExtResource("3_nj6l2")
+pose = ExtResource("6_0s6fq")
+action_type = 1
+action_name = "grip"
+metadata/_custom_type_script = "uid://bv3qn5p204mnc"
+
 [sub_resource type="Resource" id="Resource_rohou"]
 script = ExtResource("5_7jgew")
-actions = Array[ExtResource("3_nj6l2")]([SubResource("Resource_moser")])
+actions = Array[ExtResource("3_nj6l2")]([SubResource("Resource_moser"), SubResource("Resource_1rr4a")])
 metadata/_custom_type_script = "uid://bayyxb5d13oou"
 
 [node name="XrPlayerOrigin" type="XROrigin3D"]
@@ -73,6 +81,7 @@ script = ExtResource("8_ll232")
 
 [node name="FunctionPickup" parent="LeftVirtualController" instance=ExtResource("7_nj6l2")]
 grab_distance = 0.1
+grab_collision_mask = 327692
 ranged_enable = false
 
 [node name="LeftPhysicsHand" parent="LeftVirtualController" instance=ExtResource("8_7jgew")]
@@ -84,6 +93,7 @@ script = ExtResource("11_rus62")
 
 [node name="FunctionPickup" parent="RightVirtualController" instance=ExtResource("7_nj6l2")]
 grab_distance = 0.1
+grab_collision_mask = 327692
 ranged_enable = false
 
 [node name="RightPhysicsHand" parent="RightVirtualController" instance=ExtResource("9_moser")]

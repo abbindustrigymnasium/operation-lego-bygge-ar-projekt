@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 		print(global_position)
 	if has_not_moved and Globals.closest_table_mesh:
 		has_not_moved = false
-		global_position = Globals.closest_table_mesh.global_position
-		global_position.y += 1.0
+		global_position = Globals.closest_table_mesh.global_position + Vector3(0, 1, 0)
+		
 
 ### END OF CUSTOM STUFFZ ###
 
