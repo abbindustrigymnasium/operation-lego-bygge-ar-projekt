@@ -54,7 +54,7 @@ surface_index = 29
 layer_index = 1
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x2)" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, -8.74227e-09, 0.2, 0, -0.2, -8.74227e-09, -0.00792533, -0.00487684, 0.00912892)
+transform = Transform3D(0.2, 0, 0, 0, -8.74227e-09, 0.2, 0, -0.2, -8.74227e-09, 0.000137821, 0.00031044, 0.00139006)
 grab_distance = 0.15
 snap_mode = 1
 
