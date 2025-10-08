@@ -111,13 +111,13 @@ scene = ExtResource("12_tp5n2")
 script = ExtResource("13_lxryl")
 
 [node name="GrabCube" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, -1.86265e-09, -1.49012e-08, 3.72529e-09, 1, 0, 1.49012e-08, 0, 1, 0.860303, 2.41193, 1.34592)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.860303, 2.41193, 1.34592)
 
 [node name="GrabCube2" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, -1.86265e-09, -2.23517e-08, 5.58794e-09, 1, 0, 2.23517e-08, 0, 1, 0.787765, 2.49068, 1.28141)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.787765, 2.49068, 1.28141)
 
 [node name="GrabCube3" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, -1.86265e-09, -7.45058e-09, 1.86265e-09, 1, 0, 7.45058e-09, 0, 1, 0.976986, 2.43923, 1.74807)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.976986, 2.43923, 1.74807)
 
 [node name="Blueprint" parent="Node3D" instance=ExtResource("18_15xkj")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
