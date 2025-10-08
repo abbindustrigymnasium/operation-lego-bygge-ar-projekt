@@ -10,8 +10,8 @@ size = Vector3(0.1, 0.1, 0.1)
 albedo_color = Color(0.807997, 0, 0.0185281, 1)
 
 [node name="2x_4_brick" type="RigidBody3D"]
-collision_layer = 4
-collision_mask = 196615
+collision_layer = 8
+collision_mask = 196619
 freeze = true
 freeze_mode = 1
 script = ExtResource("1")
