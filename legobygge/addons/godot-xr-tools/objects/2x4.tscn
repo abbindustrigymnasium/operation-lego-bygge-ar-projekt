@@ -10,7 +10,6 @@ size = Vector3(0.1, 0.1, 0.1)
 albedo_color = Color(0.807997, 0, 0.0185281, 1)
 
 [node name="2x_4_brick" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 collision_layer = 4
 collision_mask = 196615
 freeze = true
