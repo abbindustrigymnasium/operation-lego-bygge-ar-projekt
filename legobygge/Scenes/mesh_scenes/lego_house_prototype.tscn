@@ -1,0 +1,302 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba3vtr8vgt2c5"]
+
+[ext_resource type="Script" uid="uid://4pas2rne2q20" path="res://Scenes/mesh_scenes/ghost_mesh.gd" id="1_lg14u"]
+[ext_resource type="ArrayMesh" uid="uid://dtuqro5bayhh7" path="res://lego_game_house.obj" id="2_2t1vb"]
+[ext_resource type="Material" uid="uid://esqpw1fkkmi" path="res://assets/Textures/transparent_material_3d.tres" id="3_m3l2i"]
+[ext_resource type="Material" uid="uid://c6fselq2q22py" path="res://assets/Textures/invisible_material_3d.tres" id="4_03iba"]
+[ext_resource type="Script" uid="uid://bh4wdxxaofmtm" path="res://Scenes/mesh_scenes/marker_3d.gd" id="5_wwfp5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2t1vb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m3l2i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg14u"]
+
+[node name="Blueprint" type="Node3D"]
+script = ExtResource("1_lg14u")
+
+[node name="GhostMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67007, -2.70302, 2.71155)
+mesh = ExtResource("2_2t1vb")
+surface_material_override/0 = ExtResource("3_m3l2i")
+surface_material_override/1 = ExtResource("4_03iba")
+surface_material_override/2 = ExtResource("4_03iba")
+surface_material_override/3 = ExtResource("4_03iba")
+surface_material_override/4 = ExtResource("4_03iba")
+surface_material_override/5 = ExtResource("3_m3l2i")
+surface_material_override/6 = ExtResource("4_03iba")
+surface_material_override/7 = ExtResource("3_m3l2i")
+surface_material_override/8 = ExtResource("4_03iba")
+surface_material_override/9 = ExtResource("4_03iba")
+surface_material_override/10 = ExtResource("4_03iba")
+surface_material_override/11 = ExtResource("4_03iba")
+surface_material_override/12 = ExtResource("4_03iba")
+surface_material_override/13 = ExtResource("4_03iba")
+surface_material_override/14 = ExtResource("4_03iba")
+surface_material_override/15 = ExtResource("4_03iba")
+surface_material_override/16 = ExtResource("3_m3l2i")
+surface_material_override/17 = ExtResource("3_m3l2i")
+surface_material_override/18 = ExtResource("4_03iba")
+surface_material_override/19 = ExtResource("4_03iba")
+surface_material_override/20 = ExtResource("4_03iba")
+surface_material_override/21 = ExtResource("4_03iba")
+surface_material_override/22 = ExtResource("4_03iba")
+surface_material_override/23 = ExtResource("4_03iba")
+surface_material_override/24 = ExtResource("4_03iba")
+surface_material_override/25 = ExtResource("4_03iba")
+surface_material_override/26 = ExtResource("4_03iba")
+surface_material_override/27 = ExtResource("4_03iba")
+surface_material_override/28 = ExtResource("3_m3l2i")
+surface_material_override/29 = ExtResource("4_03iba")
+surface_material_override/30 = ExtResource("4_03iba")
+
+[node name="Marker3D(2x2)" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 7.84574, 14.4544, 6.75035)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 29
+layer_index = 1
+
+[node name="Area3D" type="Area3D" parent="GhostMesh/Marker3D(2x2)"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GhostMesh/Marker3D(2x2)/Area3D"]
+shape = SubResource("BoxShape3D_2t1vb")
+
+[node name="Marker3D2(2x2)" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 24.6536, 14.3043, 7.35063)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 25
+layer_index = 1
+
+[node name="Area3D" type="Area3D" parent="GhostMesh/Marker3D2(2x2)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GhostMesh/Marker3D2(2x2)/Area3D"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+shape = SubResource("BoxShape3D_m3l2i")
+
+[node name="Marker3D3(2x4)" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.9032, 5, 15.9046)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 7
+
+[node name="Marker3D(2x2)2" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 7.84574, 5, 7.20056)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 28
+
+[node name="Area3D" type="Area3D" parent="GhostMesh/Marker3D(2x2)2"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 8.93576e-05, -0.000306786, 0.000543248)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GhostMesh/Marker3D(2x2)2/Area3D"]
+shape = SubResource("BoxShape3D_lg14u")
+
+[node name="Marker3D(2x4)3" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.9032, 24.2089, 16.2048)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 8
+layer_index = 2
+
+[node name="Marker3D(2x4)" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7994, 33.8134, 6)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 9
+layer_index = 3
+
+[node name="Marker3D(2x4)2" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -16.1654, 33.6633, 7.80083)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 10
+layer_index = 3
+
+[node name="Marker3D(2x4)4" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.9691, 5, 16.2048)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 5
+
+[node name="Marker3D(2x2)3" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.4193, 14.4544, 6)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 22
+layer_index = 1
+
+[node name="Marker3D(2x4)5" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.9691, 23.7587, 15.9046)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 6
+layer_index = 2
+
+[node name="Marker3D(2x2)4" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.1191, 33.9635, 23.5582)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 21
+layer_index = 3
+
+[node name="Marker3D(2x2)5" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.819, 14.1543, 23.5582)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 23
+layer_index = 1
+
+[node name="Marker3D(2x2)6" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.9372, 53.3646, 23.964)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 27
+layer_index = 5
+
+[node name="Marker3D(2x2)7" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.4554, 5, 40.028)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 17
+
+[node name="Marker3D(2x4)6" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0.0845162, 43.2827, 16.2751)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 14
+layer_index = 4
+
+[node name="Marker3D(2x4)7" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.519898, 52.7519, 23.9311)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 15
+layer_index = 5
+
+[node name="Marker3D(2x4)8" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -16.4242, 14.472, 40.4519)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 1
+layer_index = 1
+
+[node name="Marker3D(2x4)9" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -16.1878, 33.8134, 39.7643)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 3
+layer_index = 3
+
+[node name="Marker3D(2x4)10" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.0460743, 5.23226, 40.5047)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+
+[node name="Marker3D(2x4)11" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7994, 14.7099, 39.9124)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 2
+layer_index = 1
+
+[node name="Marker3D(2x4)12" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7994, 33.8134, 40.2505)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 4
+layer_index = 3
+
+[node name="Marker3D(2x4)13" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.519905, 43.6856, 31.1842)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 13
+layer_index = 4
+
+[node name="Marker3D(2x2)8" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.987, 24.14, 40.2422)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 19
+layer_index = 2
+
+[node name="Marker3D(2x2)9" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 23.9385, 40.0407)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 18
+layer_index = 2
+
+[node name="Marker3D(2x2)10" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 5.47628, 40.0407)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 16
+
+[node name="Marker3D(2x2)11" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 14.6707, 24.1243)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 24
+layer_index = 1
+
+[node name="Marker3D(2x2)12" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 33.8107, 24.1243)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 26
+layer_index = 3
+
+[node name="Marker3D(2x2)13" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 52.7492, 24.1243)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x2"
+surface_index = 20
+layer_index = 5
+
+[node name="Marker3D(2x4)14" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.6569, 43.4841, 23.7297)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 11
+layer_index = 4
+
+[node name="Marker3D(2x4)15" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.2938, 43.6856, 23.9311)
+gizmo_extents = 0.0
+script = ExtResource("5_wwfp5")
+required_brick_type = "2x4"
+surface_index = 12
+layer_index = 4
