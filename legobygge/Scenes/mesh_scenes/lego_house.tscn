@@ -79,7 +79,7 @@ required_brick_type = "2x4"
 surface_index = 7
 
 [node name="SnapZone" parent="GhostMesh/Marker3D3(2x4)" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0078318, -0.00539058, 0.0081877)
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.0078318, -0.00539058, 0.0159526)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -106,7 +106,7 @@ surface_index = 8
 layer_index = 2
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)3" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.008, -0.005, 0.0157649)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -121,7 +121,7 @@ surface_index = 9
 layer_index = 3
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.01)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.015543, -0.005, 0.01)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -136,7 +136,7 @@ surface_index = 10
 layer_index = 3
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)2" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0157648, -0.005, 0.008)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -150,7 +150,7 @@ required_brick_type = "2x4"
 surface_index = 5
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)4" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.008, -0.005, 0.0153212)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -178,7 +178,7 @@ surface_index = 6
 layer_index = 2
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)5" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -0.008, -0.005, 0.0157649)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -244,7 +244,7 @@ surface_index = 14
 layer_index = 4
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)6" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0159867, -0.005, 0.008)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
@@ -259,7 +259,7 @@ surface_index = 15
 layer_index = 5
 
 [node name="SnapZone" parent="GhostMesh/Marker3D(2x4)7" instance=ExtResource("6_gfk5j")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.008, -0.005, 0.008)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.015543, -0.005, 0.008)
 collision_layer = 8
 collision_mask = 65544
 grab_distance = 0.05
