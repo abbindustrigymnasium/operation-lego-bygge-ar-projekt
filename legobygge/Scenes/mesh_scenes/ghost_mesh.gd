@@ -50,6 +50,7 @@ var completed_pieces = {
 	29: false,
 	30: false
 }
+
 var check_layer_complete_on_next_process = false
 
 var current_layer := 0
@@ -91,11 +92,21 @@ func show_layer(layer_index: int):
 
 func advance_layer():
 	current_layer += 1
+	if current_layer < len(layers):
+		$AudioStreamPlayer3D.play()
+	else:
+		$AudioStreamPlayer3D.stream = preload("res://assets/fanfare.ogg")
+		$AudioStreamPlayer3D.play()
+		timer_running = false
+		$TimerLabel.text = "Ditt resultat: " + str(round_decimals(elapsed_time, 1)) + "s"
+		
+
 	if current_layer < layers.size():
 		show_layer(current_layer)
 	
-	$AudioStreamPlayer3D.play()
 
+var elapsed_time: float = 0.0
+var timer_running: bool = true
 
 func _ready() -> void:
 	hide_all_layers()
@@ -106,7 +117,14 @@ func calculate_up_dist() -> float:
 	var mesh = Globals.closest_table_mesh
 	return (mesh.scale.y + self.scale.y) / 2
 
+# Godot does not have this functionality natively.
+func round_decimals(num, decimals):
+	return (round(num*pow(10, decimals))/pow(10, decimals))
+
 func _process(delta: float) -> void:
+	if timer_running:
+		elapsed_time += delta
+		$TimerLabel.text = str(round_decimals(elapsed_time, 1)) + "s"
 	if Globals.closest_table_mesh:
 		global_position = Globals.closest_table_mesh.global_position
 		global_position.y += calculate_up_dist()

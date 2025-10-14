@@ -507,3 +507,11 @@ transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 
 enabled = false
 grab_distance = 0.05
 snap_mode = 1
+
+[node name="TimerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 105.45, 27.295)
+pixel_size = 0.2
+billboard = 2
+text = "Timer"
+font_size = 108
+outline_size = 24

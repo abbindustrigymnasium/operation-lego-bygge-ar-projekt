@@ -14,6 +14,11 @@ func _process(delta: float) -> void:
 	if has_not_moved and Globals.closest_table_mesh:
 		has_not_moved = false
 		global_position = Globals.closest_table_mesh.global_position + Vector3(0, 1, 0)
+		if self.name.contains("2x"):
+			global_position += Vector3(0.3, 0, 0)
+		else:
+			global_position += Vector3(-0.3, 0, 0)
+			
 		
 
 ### END OF CUSTOM STUFFZ ###
