@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba1vwh284acbl"]
+[gd_scene load_steps=4 format=3 uid="uid://dcoagj2rnyyhy"]
 
-[ext_resource type="Script" uid="uid://bae5xa4mjhcmp" path="res://rotate_2x4.gd" id="1_j3jwc"]
-[ext_resource type="Script" uid="uid://cpas28qna3mtj" path="res://main_menu.gd" id="1_mue8r"]
-[ext_resource type="PackedScene" uid="uid://bocdvnfnkdthe" path="res://main_menu_lego_2x2.tscn" id="2_j3jwc"]
+[ext_resource type="Script" uid="uid://n00cmcr2be04" path="res://rotate_2x4.gd" id="1_j3jwc"]
+[ext_resource type="Script" uid="uid://d0sn6jat6wpxa" path="res://main_menu.gd" id="1_mue8r"]
+[ext_resource type="PackedScene" path="res://main_menu_lego_2x2.tscn" id="2_j3jwc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
