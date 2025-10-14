@@ -7,8 +7,10 @@
 size = Vector3(15, 15, 10)
 
 [node name="2x2 BRICK" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.04, -0.02, 0.04)
 collision_layer = 4
 collision_mask = 7
+gravity_scale = 0.0
 script = ExtResource("1_w8bfj")
 press_to_hold = false
 picked_up_layer = 65540
