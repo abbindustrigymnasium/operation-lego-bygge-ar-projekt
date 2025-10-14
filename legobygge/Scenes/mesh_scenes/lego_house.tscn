@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bh4wdxxaofmtm" path="res://Scenes/mesh_scenes/marker_3d.gd" id="2_b02ko"]
 [ext_resource type="Script" uid="uid://4pas2rne2q20" path="res://Scenes/mesh_scenes/ghost_mesh.gd" id="2_ie3tg"]
 [ext_resource type="Material" uid="uid://esqpw1fkkmi" path="res://assets/Textures/transparent_material_3d.tres" id="3_g80nc"]
-[ext_resource type="Material" uid="uid://c6fselq2q22py" path="res://assets/Textures/invisible_material_3d.tres" id="4_gfk5j"]
+[ext_resource type="Material" uid="uid://chnxeidf3xxnu" path="res://assets/Textures/transparent_material__red_3d.tres" id="3_gfk5j"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_gfk5j"]
 
 [node name="Blueprint" type="Node3D"]
@@ -13,37 +13,37 @@ script = ExtResource("2_ie3tg")
 [node name="GhostMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67007, -2.70302, 2.71155)
 mesh = ExtResource("1_iyn27")
-surface_material_override/0 = ExtResource("3_g80nc")
-surface_material_override/1 = ExtResource("4_gfk5j")
-surface_material_override/2 = ExtResource("4_gfk5j")
-surface_material_override/3 = ExtResource("4_gfk5j")
-surface_material_override/4 = ExtResource("4_gfk5j")
-surface_material_override/5 = ExtResource("3_g80nc")
-surface_material_override/6 = ExtResource("4_gfk5j")
-surface_material_override/7 = ExtResource("3_g80nc")
-surface_material_override/8 = ExtResource("4_gfk5j")
-surface_material_override/9 = ExtResource("4_gfk5j")
-surface_material_override/10 = ExtResource("4_gfk5j")
-surface_material_override/11 = ExtResource("4_gfk5j")
-surface_material_override/12 = ExtResource("4_gfk5j")
-surface_material_override/13 = ExtResource("4_gfk5j")
-surface_material_override/14 = ExtResource("4_gfk5j")
-surface_material_override/15 = ExtResource("4_gfk5j")
+surface_material_override/0 = ExtResource("3_gfk5j")
+surface_material_override/1 = ExtResource("3_gfk5j")
+surface_material_override/2 = ExtResource("3_gfk5j")
+surface_material_override/3 = ExtResource("3_gfk5j")
+surface_material_override/4 = ExtResource("3_gfk5j")
+surface_material_override/5 = ExtResource("3_gfk5j")
+surface_material_override/6 = ExtResource("3_gfk5j")
+surface_material_override/7 = ExtResource("3_gfk5j")
+surface_material_override/8 = ExtResource("3_gfk5j")
+surface_material_override/9 = ExtResource("3_gfk5j")
+surface_material_override/10 = ExtResource("3_gfk5j")
+surface_material_override/11 = ExtResource("3_gfk5j")
+surface_material_override/12 = ExtResource("3_gfk5j")
+surface_material_override/13 = ExtResource("3_gfk5j")
+surface_material_override/14 = ExtResource("3_gfk5j")
+surface_material_override/15 = ExtResource("3_gfk5j")
 surface_material_override/16 = ExtResource("3_g80nc")
 surface_material_override/17 = ExtResource("3_g80nc")
-surface_material_override/18 = ExtResource("4_gfk5j")
-surface_material_override/19 = ExtResource("4_gfk5j")
-surface_material_override/20 = ExtResource("4_gfk5j")
-surface_material_override/21 = ExtResource("4_gfk5j")
-surface_material_override/22 = ExtResource("4_gfk5j")
-surface_material_override/23 = ExtResource("4_gfk5j")
-surface_material_override/24 = ExtResource("4_gfk5j")
-surface_material_override/25 = ExtResource("4_gfk5j")
-surface_material_override/26 = ExtResource("4_gfk5j")
-surface_material_override/27 = ExtResource("4_gfk5j")
+surface_material_override/18 = ExtResource("3_g80nc")
+surface_material_override/19 = ExtResource("3_g80nc")
+surface_material_override/20 = ExtResource("3_g80nc")
+surface_material_override/21 = ExtResource("3_g80nc")
+surface_material_override/22 = ExtResource("3_g80nc")
+surface_material_override/23 = ExtResource("3_g80nc")
+surface_material_override/24 = ExtResource("3_g80nc")
+surface_material_override/25 = ExtResource("3_g80nc")
+surface_material_override/26 = ExtResource("3_g80nc")
+surface_material_override/27 = ExtResource("3_g80nc")
 surface_material_override/28 = ExtResource("3_g80nc")
-surface_material_override/29 = ExtResource("4_gfk5j")
-surface_material_override/30 = ExtResource("4_gfk5j")
+surface_material_override/29 = ExtResource("3_g80nc")
+surface_material_override/30 = ExtResource("3_g80nc")
 
 [node name="Marker3D(2x2)" type="Marker3D" parent="GhostMesh"]
 transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.0119728, 9.43227, 15.9866)
@@ -102,7 +102,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)3" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.9032, 24.2089, 16.2048)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.9032, 18.924, 16.2048)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -118,7 +118,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7994, 33.8134, 6)
+transform = Transform3D(-4.37114e-05, 0, 1000, 0, 1000, 0, -1000, 0, -4.37114e-05, 15.7994, 28.8477, 7.89168)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -134,7 +134,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)2" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -16.1654, 33.6633, 7.80083)
+transform = Transform3D(-4.37114e-05, 0, 1000, 0, 1000, 0, -1000, 0, -4.37114e-05, -16.1654, 28.9341, 7.80083)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -179,7 +179,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)5" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.9691, 23.7587, 15.9046)
+transform = Transform3D(-4.37114e-05, 0, 1000, 0, 1000, 0, -1000, 0, -4.37114e-05, -23.9691, 18.3201, 15.9046)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -195,7 +195,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)4" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.1191, 33.9635, 23.5582)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -31.9223, 28.5249, 32.0708)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -223,7 +223,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)6" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -23.9372, 53.3646, 23.964)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -32.3014, 47.5207, 32.3282)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -250,7 +250,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)6" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0.0845162, 43.2827, 16.2751)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, 0.0845162, 38.1355, 16.2751)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -266,7 +266,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)7" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.519898, 52.7519, 23.9311)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, -0.519898, 47.9264, 23.9311)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -298,7 +298,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)9" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -16.1878, 33.8134, 39.7643)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, -16.1878, 28.6113, 39.7643)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -344,7 +344,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)12" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7994, 33.8134, 40.2505)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, 15.7994, 28.8477, 40.2505)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -360,7 +360,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)13" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.519905, 43.6856, 31.1842)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, -0.519905, 37.895, 31.1842)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -376,7 +376,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)8" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -31.9642, 24.14, 47.4716)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -31.9642, 19.2508, 47.4716)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -390,7 +390,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)9" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 23.9385, 40.0407)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7621, 18.9385, 48.0407)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -431,7 +431,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)12" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 33.8107, 24.1243)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15.7225, 28.845, 31.691)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -445,7 +445,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x2)13" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.7621, 52.7492, 24.1243)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 16.0413, 47.602, 31.8451)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x2"
@@ -459,7 +459,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)14" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 23.6569, 43.4841, 23.7297)
+transform = Transform3D(-4.37114e-05, 1000, -4.37114e-05, 0, -4.37114e-05, -1000, -1000, -4.37114e-05, 1.91069e-12, 23.6569, 38.0152, 23.7297)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -475,7 +475,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)15" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -24.2938, 43.6856, 23.9311)
+transform = Transform3D(-4.37114e-05, 1000, -4.37114e-05, 0, -4.37114e-05, -1000, -1000, -4.37114e-05, 1.91069e-12, -24.2938, 37.895, 23.9311)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
@@ -486,6 +486,20 @@ layer_index = 4
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, 0, 0)
 collision_layer = 8
 collision_mask = 65544
+enabled = false
+grab_distance = 0.05
+snap_mode = 1
+
+[node name="Marker3D(2x2)14" type="Marker3D" parent="GhostMesh"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.0205644, 18.2633, 16.036)
+gizmo_extents = 0.0
+script = ExtResource("2_b02ko")
+required_brick_type = "2x2"
+surface_index = 30
+layer_index = 2
+
+[node name="SnapZone" parent="GhostMesh/Marker3D(2x2)14" instance=ExtResource("6_gfk5j")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, 0, 0)
 enabled = false
 grab_distance = 0.05
 snap_mode = 1
