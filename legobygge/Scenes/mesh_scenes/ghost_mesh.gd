@@ -97,6 +97,7 @@ func advance_layer():
 	else:
 		$AudioStreamPlayer3D.stream = preload("res://assets/fanfare.ogg")
 		$AudioStreamPlayer3D.play()
+		$RestartArea.show()
 		timer_running = false
 		$TimerLabel.text = "Ditt resultat: " + str(round_decimals(elapsed_time, 1)) + "s"
 		
@@ -109,6 +110,7 @@ var elapsed_time: float = 0.0
 var timer_running: bool = true
 
 func _ready() -> void:
+	$RestartArea.hide()
 	hide_all_layers()
 	print("showing layer", current_layer)
 	show_layer(current_layer)
@@ -143,4 +145,6 @@ func _process(delta: float) -> void:
 		if not missing_piece:
 			print("advancing layer")
 			advance_layer()
-			
+
+func restart_game(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://main.tscn")
