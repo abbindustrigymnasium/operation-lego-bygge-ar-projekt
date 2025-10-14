@@ -8,15 +8,15 @@ var left_hand_position = Vector3.ZERO
 var closest_table_mesh: MeshInstance3D
 
 func compare_table_distance_set_variable(mesh: MeshInstance3D) -> bool:
-	print("here 4")
+	# print("here 4")
 	if !closest_table_mesh:
 		print("first run of function, setting default")
 		closest_table_mesh = mesh
 		return true
 	var avg_hand_position: Vector3 = (right_hand_position + left_hand_position) / 2
-	print("average hand pos:", avg_hand_position)
+	# print("average hand pos:", avg_hand_position)
 	var table_pos: Vector3 = mesh.global_transform.origin
-	print("table pos ", table_pos)
+	# print("table pos ", table_pos)
 	var closest: MeshInstance3D = closest_table_mesh
 	
 	var current_closest_pos: Vector3 = closest_table_mesh.global_transform.origin

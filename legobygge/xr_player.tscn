@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://delh7tk6rbcqo"]
+[gd_scene load_steps=23 format=3 uid="uid://delh7tk6rbcqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="1_gougc"]
 [ext_resource type="Script" uid="uid://ddixnyxklyg5m" path="res://xr_player.gd" id="1_rohou"]
@@ -17,9 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://yfumnjiupmpd" path="res://Grabcube.tscn" id="12_24adu"]
 [ext_resource type="Script" uid="uid://0k773u7d488c" path="res://open_xr_fb_scene_manager.gd" id="12_lxryl"]
 [ext_resource type="PackedScene" uid="uid://cvf6e0m6fawxo" path="res://spatial_anchor.tscn" id="12_tp5n2"]
-[ext_resource type="Script" uid="uid://d2u0015y26np7" path="res://lego_house.gd" id="13_lxryl"]
 [ext_resource type="PackedScene" uid="uid://y6mgnsslnunn" path="res://Scenes/mesh_scenes/lego_house.tscn" id="18_15xkj"]
-[ext_resource type="Script" uid="uid://c284cspsoh5gj" path="res://Scenes/mesh_scenes/lego_house.gd" id="19_vqq1f"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/2x4.tscn" id="22_1rr4a"]
 
 [sub_resource type="Resource" id="Resource_moser"]
@@ -107,7 +105,6 @@ script = ExtResource("12_lxryl")
 scene = ExtResource("12_tp5n2")
 
 [node name="Node3D" type="Node3D" parent="."]
-script = ExtResource("13_lxryl")
 
 [node name="GrabCube" parent="Node3D" instance=ExtResource("12_24adu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.860303, 2.41193, 1.34592)
@@ -123,19 +120,22 @@ picked_up_layer = 4
 
 [node name="Blueprint" parent="Node3D" instance=ExtResource("18_15xkj")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
-script = ExtResource("19_vqq1f")
 
 [node name="2x_4_brick" parent="Node3D" instance=ExtResource("22_1rr4a")]
 transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
+picked_up_layer = 8
 
 [node name="2x_4_brick2" parent="Node3D" instance=ExtResource("22_1rr4a")]
 transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
+picked_up_layer = 8
 
 [node name="2x_4_brick3" parent="Node3D" instance=ExtResource("22_1rr4a")]
 transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
+picked_up_layer = 8
 
 [node name="2x_4_brick4" parent="Node3D" instance=ExtResource("22_1rr4a")]
 transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
+picked_up_layer = 8
 
 [connection signal="openxr_fb_scene_capture_completed" from="OpenXRFbSceneManager" to="." method="_scene_capture_completed"]
 [connection signal="openxr_fb_scene_data_missing" from="OpenXRFbSceneManager" to="." method="_scene_data_missing"]

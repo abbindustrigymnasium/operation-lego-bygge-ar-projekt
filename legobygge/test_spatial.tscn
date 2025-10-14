@@ -6,3 +6,4 @@
 script = ExtResource("1_ow3ra")
 
 [node name="Label3D" type="Label3D" parent="."]
+visible = false
