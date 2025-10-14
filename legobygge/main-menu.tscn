@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba1vwh284acbl"]
+
+[ext_resource type="Script" uid="uid://bae5xa4mjhcmp" path="res://rotate_2x4.gd" id="1_j3jwc"]
+[ext_resource type="Script" uid="uid://cpas28qna3mtj" path="res://main_menu.gd" id="1_mue8r"]
+[ext_resource type="PackedScene" uid="uid://bocdvnfnkdthe" path="res://main_menu_lego_2x2.tscn" id="2_j3jwc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_mue8r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 76.0
+offset_right = 48.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "START"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "EXIT"
+flat = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 300.0
+grow_horizontal = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136043)
+fov = 60.0
+far = 20.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.913325, 0.407231, 0, -0.407231, 0.913325, 0, 0.151777, 0.2203)
+
+[node name="Main-menu-Lego2x2" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("2_j3jwc")]
+script = ExtResource("1_j3jwc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LEGOBUILDER" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.76
+anchor_right = 0.505
+anchor_bottom = 0.76
+offset_left = -125.76
+offset_top = -204.48
+offset_right = 114.24
+offset_bottom = -135.48
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "ARchitect"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
