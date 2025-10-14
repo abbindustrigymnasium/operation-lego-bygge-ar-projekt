@@ -95,7 +95,7 @@ func advance_layer():
 		show_layer(current_layer)
 	
 	$AudioStreamPlayer3D.play()
-		
+
 
 func _ready() -> void:
 	hide_all_layers()

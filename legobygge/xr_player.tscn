@@ -106,36 +106,70 @@ scene = ExtResource("12_tp5n2")
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="GrabCube" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.860303, 2.41193, 1.34592)
-picked_up_layer = 4
-
-[node name="GrabCube2" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.787765, 2.49068, 1.28141)
-picked_up_layer = 4
-
-[node name="GrabCube3" parent="Node3D" instance=ExtResource("12_24adu")]
-transform = Transform3D(1, -1.86265e-09, -7.45058e-09, 1.86265e-09, 1, -1.38778e-17, 7.45058e-09, 0, 1, 0.976986, 2.43923, 1.74807)
-picked_up_layer = 4
-
 [node name="Blueprint" parent="Node3D" instance=ExtResource("18_15xkj")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
+[node name="GrabCube" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube2" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube3" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube4" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube5" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube6" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube7" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube8" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube9" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube10" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube11" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube12" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube13" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube14" parent="Node3D" instance=ExtResource("12_24adu")]
+
+[node name="GrabCube15" parent="Node3D" instance=ExtResource("12_24adu")]
+
 [node name="2x_4_brick" parent="Node3D" instance=ExtResource("22_1rr4a")]
-transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
-picked_up_layer = 8
 
 [node name="2x_4_brick2" parent="Node3D" instance=ExtResource("22_1rr4a")]
-transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
-picked_up_layer = 8
 
 [node name="2x_4_brick3" parent="Node3D" instance=ExtResource("22_1rr4a")]
-transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
-picked_up_layer = 8
 
 [node name="2x_4_brick4" parent="Node3D" instance=ExtResource("22_1rr4a")]
-transform = Transform3D(1, -1.86265e-09, -8.19564e-08, 2.42144e-08, 1, 0, 8.19564e-08, 0, 1, 1.04961, 2.47229, 1.73905)
-picked_up_layer = 8
+
+[node name="2x_4_brick5" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick6" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick7" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick8" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick9" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick10" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick11" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick12" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick13" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick14" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick15" parent="Node3D" instance=ExtResource("22_1rr4a")]
+
+[node name="2x_4_brick16" parent="Node3D" instance=ExtResource("22_1rr4a")]
 
 [connection signal="openxr_fb_scene_capture_completed" from="OpenXRFbSceneManager" to="." method="_scene_capture_completed"]
 [connection signal="openxr_fb_scene_data_missing" from="OpenXRFbSceneManager" to="." method="_scene_data_missing"]
