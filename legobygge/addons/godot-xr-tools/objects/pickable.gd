@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	delta_sum += delta
 	if delta_sum >= 1.0:
 		delta_sum = 0.0
-		print(global_position)
+		#print(global_position)
 	if has_not_moved and Globals.closest_table_mesh:
 		has_not_moved = false
 		global_position = Globals.closest_table_mesh.global_position + Vector3(0, 1, 0)
@@ -456,8 +456,8 @@ func _set_ranged_grab_method(new_value: int) -> void:
 	
 
 func _on_found_table(pos: Vector3) -> void:
-	print("pos", pos)
-	print("global_pos before" , global_position)
+	#print("pos", pos)
+	#print("global_pos before" , global_position)
 	global_position = pos
-	print("set global_pos to ", pos)
+	#print("set global_pos to ", pos)
 	global_position.y += 0.5

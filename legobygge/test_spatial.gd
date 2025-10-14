@@ -14,7 +14,7 @@ func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 
 
 	label.text = semantic_labels[0]
-	print(semantic_labels[0])
+	# print(semantic_labels[0])
 
 	var collision_shape = entity.create_collision_shape()
 	if collision_shape:
@@ -36,9 +36,9 @@ func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 			mesh_instance.queue_free()
 	# print("found table ", semantic_labels.count("table") > 0 and not found_table)
 	if semantic_labels.count("table") > 0 and not found_table:
-		print("found table", found_table)
+		# print("found table", found_table)
 		Globals.emit_signal("found_table", collision_shape.global_position)
-		print("FoundTable!", collision_shape.global_position)
+		# print("FoundTable!", collision_shape.global_position)
 		found_table = true
 
 	# if semantic_labels[0] == "global_mesh":

@@ -264,13 +264,24 @@ func pick_up_object(target: Node3D) -> void:
 	### CUSTOM STUFFZ ###
 	print("here, in the pick me function")
 	var marker_3d: Marker3D = self.get_parent()
-	var mesh: MeshInstance3D = self.get_parent().get_parent()
-	var invis_mat = preload("res://assets/Textures/invisible_material_3d.tres")
-	var i = marker_3d.surface_index
-	mesh.set_surface_override_material(i, invis_mat)
+	if marker_3d:
+		var i = marker_3d.surface_index
+		var invis_mat = preload("res://assets/Textures/invisible_material_3d.tres")
+		var mesh: MeshInstance3D = self.get_parent().get_parent()
+		if mesh:
+			mesh.set_surface_override_material(i, invis_mat)
+			
+			var blueprint: Node3D = self.get_parent().get_parent().get_parent()
+			if blueprint:
+				blueprint.set_piece_placed(i)
+		
+
+	
+
 	
 	# HERE if no workie
 	self.enabled = false
+	
 	### END OF CUSTOM STUFFZ ###
 
 	# If object picked up then emit signal

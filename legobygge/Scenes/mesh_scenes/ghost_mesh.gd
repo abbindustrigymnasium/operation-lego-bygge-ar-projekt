@@ -17,6 +17,41 @@ var layers = [
 	[15,20,27]
 ]
 
+var completed_pieces = {
+	0: false,
+	1: false,
+	2: false,
+	3: false,
+	4: false,
+	5: false,
+	6: false,
+	7: false,
+	8: false,
+	9: false,
+	10: false,
+	11: false,
+	12: false,
+	13: false,
+	14: false,
+	15: false,
+	16: false,
+	17: false,
+	18: false,
+	19: false,
+	20: false,
+	21: false,
+	22: false,
+	23: false,
+	24: false,
+	25: false,
+	26: false,
+	27: false,
+	28: false,
+	29: false,
+	30: false
+}
+var check_layer_complete_on_next_process = false
+
 var current_layer := 0
 
 func hide_all_layers():
@@ -24,6 +59,15 @@ func hide_all_layers():
 	var invis_mat = preload("res://assets/Textures/invisible_material_3d.tres")
 	for i in mesh.mesh.get_surface_count():
 		mesh.set_surface_override_material(i, invis_mat)
+		
+
+func set_piece_placed(surface: int):
+	print("setting surface: ", surface, " as placed")
+	if not completed_pieces.has(surface):
+		return
+	else:
+		completed_pieces.set(surface, true)
+		check_layer_complete_on_next_process = true
 		
 
 func show_layer(layer_index: int):
@@ -44,18 +88,14 @@ func show_layer(layer_index: int):
 					print("setting snapzone enabled for surface, ", surface)
 					snapzone.enabled = true
 
-func check_layer_complete():
-	var markers = get_tree().get_nodes_in_group("snap_markers")
-	for marker in markers:
-		if marker.layer_index == current_layer and not marker.occupied:
-			return false
-	return true
 
 func advance_layer():
-	if check_layer_complete():
-		current_layer += 1
-		if current_layer < layers.size():
-			show_layer(current_layer)
+	current_layer += 1
+	if current_layer < layers.size():
+		show_layer(current_layer)
+	
+	$AudioStreamPlayer3D.play()
+		
 
 func _ready() -> void:
 	hide_all_layers()
@@ -71,3 +111,18 @@ func _process(delta: float) -> void:
 		global_position = Globals.closest_table_mesh.global_position
 		global_position.y += calculate_up_dist()
 		self.show()
+	
+	if check_layer_complete_on_next_process:
+		print("checking for layer completion")
+		check_layer_complete_on_next_process = false
+		var missing_piece = false
+		for surface in layers[current_layer]:
+			print("checking piece: ", surface, completed_pieces[surface])
+			if not completed_pieces[surface]:
+				print("piece missing: ", surface, completed_pieces[surface])
+				missing_piece = true
+		
+		if not missing_piece:
+			print("advancing layer")
+			advance_layer()
+			
