@@ -310,7 +310,7 @@ grab_distance = 0.05
 snap_mode = 1
 
 [node name="Marker3D(2x4)10" type="Marker3D" parent="GhostMesh"]
-transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, -0.0460743, 0.0245671, 40.5047)
+transform = Transform3D(1000, 0, 0, 0, -4.37114e-05, -1000, 0, 1000, -4.37114e-05, -0.0460743, 0.0245671, 39.6631)
 gizmo_extents = 0.0
 script = ExtResource("2_b02ko")
 required_brick_type = "2x4"
