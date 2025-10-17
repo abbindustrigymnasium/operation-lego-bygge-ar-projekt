@@ -2,7 +2,7 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
-### CUSTOM STUFFZ ###
+### Patched by us. ###
 var has_not_moved = true
 var delta_sum = 0.0
 
@@ -10,8 +10,8 @@ func _process(delta: float) -> void:
 	delta_sum += delta
 	if delta_sum >= 1.0:
 		delta_sum = 0.0
-		#print(global_position)
 	if has_not_moved and Globals.closest_table_mesh:
+		# Separate pieces.
 		has_not_moved = false
 		global_position = Globals.closest_table_mesh.global_position + Vector3(0, 1, 0)
 		if self.name.contains("2x"):
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 			
 		
 
-### END OF CUSTOM STUFFZ ###
+### End of patch ###
 
 ## XR Tools Pickable Object
 ##
@@ -144,7 +144,9 @@ func is_xr_class(name : String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Patched by us.
 	Globals.connect("found_table", Callable(self, "_on_found_table"))
+	# End of patched by us.
 	# Get all grab points
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint

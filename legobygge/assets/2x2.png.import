@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkcwrtiyh4p2g"
-path="res://.godot/imported/studbar_empty.png-1e7f4356bea7cfd24edefe45633cd257.ctex"
+uid="uid://sk2rmsvurk3t"
+path="res://.godot/imported/2x2.png-ad7f254117b7c713df04c79bee6be203.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://studbar_empty.png"
-dest_files=["res://.godot/imported/studbar_empty.png-1e7f4356bea7cfd24edefe45633cd257.ctex"]
+source_file="res://assets/2x2.png"
+dest_files=["res://.godot/imported/2x2.png-ad7f254117b7c713df04c79bee6be203.ctex"]
 
 [params]
 

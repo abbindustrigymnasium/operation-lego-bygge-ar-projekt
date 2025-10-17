@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://y6f6npx5liub"]
 
-[ext_resource type="Script" uid="uid://1aji8st3sqt0" path="res://test_spatial.gd" id="1_ow3ra"]
+[ext_resource type="Script" uid="uid://1aji8st3sqt0" path="res://scenes/test_spatial.gd" id="1_ow3ra"]
 
 [node name="StaticBody3D" type="StaticBody3D"]
 script = ExtResource("1_ow3ra")

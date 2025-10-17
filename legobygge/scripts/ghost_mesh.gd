@@ -1,13 +1,14 @@
 extends Node3D
 
+# Track which piece type every piece is.
 var two_by_four = [
 	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 ]
-
 var two_by_two = [
 	16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
 ]
 
+# Track what pieces belong to which layer.
 var layers = [
 	[0,5,7,16,17,28],
 	[1,2,22,23,24,25,29],
@@ -17,6 +18,7 @@ var layers = [
 	[15,20,27]
 ]
 
+# Track completed pieces in a hashmap.
 var completed_pieces = {
 	0: false,
 	1: false,
@@ -51,8 +53,10 @@ var completed_pieces = {
 	30: false
 }
 
+# Marker for when to check layer completion to avoid 
 var check_layer_complete_on_next_process = false
 
+# Counter for tracking layer.
 var current_layer := 0
 
 func hide_all_layers():
@@ -63,10 +67,10 @@ func hide_all_layers():
 		
 
 func set_piece_placed(surface: int):
-	print("setting surface: ", surface, " as placed")
 	if not completed_pieces.has(surface):
 		return
 	else:
+		# When piece is placed, check if layer is complete.
 		completed_pieces.set(surface, true)
 		check_layer_complete_on_next_process = true
 		
@@ -83,13 +87,11 @@ func show_layer(layer_index: int):
 		# Get the Marker3D child that corresponds to this surface
 		for child in mesh.get_children():
 			if child.get("surface_index") == surface:
-				print("getting snapzone")
 				var snapzone = child.get_node_or_null("SnapZone")
 				if snapzone:
-					print("setting snapzone enabled for surface, ", surface)
 					snapzone.enabled = true
 
-
+# Advance layer, when triggered in main loop.
 func advance_layer():
 	current_layer += 1
 	if current_layer < len(layers):
@@ -98,6 +100,7 @@ func advance_layer():
 		$AudioStreamPlayer3D.stream = preload("res://assets/fanfare.ogg")
 		$AudioStreamPlayer3D.play()
 		$RestartArea.show()
+		$RestartArea.monitoring = true
 		timer_running = false
 		$TimerLabel.text = "Ditt resultat: " + str(round_decimals(elapsed_time, 1)) + "s"
 		
@@ -111,8 +114,8 @@ var timer_running: bool = true
 
 func _ready() -> void:
 	$RestartArea.hide()
+	$RestartArea.monitoring = false
 	hide_all_layers()
-	print("showing layer", current_layer)
 	show_layer(current_layer)
 
 func calculate_up_dist() -> float:
@@ -133,18 +136,15 @@ func _process(delta: float) -> void:
 		self.show()
 	
 	if check_layer_complete_on_next_process:
-		print("checking for layer completion")
+		# Logic for checking layer complete.
 		check_layer_complete_on_next_process = false
 		var missing_piece = false
 		for surface in layers[current_layer]:
-			print("checking piece: ", surface, completed_pieces[surface])
 			if not completed_pieces[surface]:
-				print("piece missing: ", surface, completed_pieces[surface])
 				missing_piece = true
 		
 		if not missing_piece:
-			print("advancing layer")
 			advance_layer()
 
 func restart_game(body: Node3D) -> void:
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().reload_current_scene()

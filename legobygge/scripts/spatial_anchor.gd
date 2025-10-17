@@ -4,4 +4,3 @@ extends Node3D
 
 func setup_scene(entity: OpenXRFbSpatialEntity) -> void:
 	var data := entity.custom_data
-	

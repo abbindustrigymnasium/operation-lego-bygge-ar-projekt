@@ -1,3 +1,4 @@
+# Boilerplate to move hand based on tracking by headset.
 extends XRController3D
 
 var sum_of_deltas = 0.0

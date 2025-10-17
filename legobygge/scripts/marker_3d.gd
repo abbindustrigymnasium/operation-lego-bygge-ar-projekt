@@ -1,9 +1,10 @@
 extends Marker3D
 @export var required_brick_type: String
+# Logic for snap zones.
+
 @export var surface_index: int
 @export var layer_index: int
 var occupied: bool = false
-# var surface_index = 25
 
 func try_place(player_brick: Node3D) -> bool:
 	if occupied:

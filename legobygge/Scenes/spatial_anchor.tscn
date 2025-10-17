@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvf6e0m6fawxo"]
+
+[ext_resource type="Script" uid="uid://dcyrmccmo3tyw" path="res://scripts/spatial_anchor.gd" id="1_0sc5c"]
+[ext_resource type="PackedScene" uid="uid://y6mgnsslnunn" path="res://scenes/mesh_scenes/lego_house.tscn" id="1_dykg1"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_0sc5c")
+
+[node name="Blueprint" parent="." instance=ExtResource("1_dykg1")]

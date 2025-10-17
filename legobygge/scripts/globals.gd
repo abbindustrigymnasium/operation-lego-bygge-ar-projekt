@@ -1,3 +1,6 @@
+# Global variables and functions for use for
+# global game state.
+
 extends Node
 
 signal found_table(pos: Vector3)
@@ -8,32 +11,28 @@ var left_hand_position = Vector3.ZERO
 var closest_table_mesh: MeshInstance3D
 
 func compare_table_distance_set_variable(mesh: MeshInstance3D) -> bool:
-	# print("here 4")
 	if !closest_table_mesh:
-		# print("first run of function, setting default")
 		closest_table_mesh = mesh
 		return true
+	# Calculate the average hand position to compare agains.
 	var avg_hand_position: Vector3 = (right_hand_position + left_hand_position) / 2
-	# print("average hand pos:", avg_hand_position)
 	var table_pos: Vector3 = mesh.global_transform.origin
-	# print("table pos ", table_pos)
 	var closest: MeshInstance3D = closest_table_mesh
 	
 	var current_closest_pos: Vector3 = closest_table_mesh.global_transform.origin
 	var current_closest_dist: float = current_closest_pos.distance_to(avg_hand_position)
 	var new_dist = table_pos.distance_to(avg_hand_position)
-	# print("current closest dist: ", current_closest_dist)
 	if new_dist < current_closest_dist:
 		closest_table_mesh = mesh
-		# print("new closest table found ", current_closest_dist, closest.global_position)
 		return true
 	else:
 		return false
 		
 
+# Simple getter/setter methods for use in above function.
 func set_right_hand_position(pos: Vector3) -> void:
 	right_hand_position = pos
-	
+
 func set_left_hand_position(pos: Vector3) -> void:
 	left_hand_position = pos
 

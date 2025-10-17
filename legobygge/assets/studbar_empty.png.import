@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://me6fd1r442tg"
-path="res://.godot/imported/studbar_light.png-95f8bc93352365007adaaa3314fdc4ab.ctex"
+uid="uid://dkcwrtiyh4p2g"
+path="res://.godot/imported/studbar_empty.png-aa01c57bf442ef594c403d55baddc47d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://studbar_light.png"
-dest_files=["res://.godot/imported/studbar_light.png-95f8bc93352365007adaaa3314fdc4ab.ctex"]
+source_file="res://assets/studbar_empty.png"
+dest_files=["res://.godot/imported/studbar_empty.png-aa01c57bf442ef594c403d55baddc47d.ctex"]
 
 [params]
 

@@ -261,11 +261,11 @@ func pick_up_object(target: Node3D) -> void:
 
 	target.pick_up(self)
 	
-	### CUSTOM STUFFZ ###
-	print("here, in the pick me function")
+	### Patched by us: Remove blueprint when piece snaps to snap zone. ###
 	var marker_3d: Marker3D = self.get_parent()
 	if marker_3d:
 		var i = marker_3d.surface_index
+		# Change to invisible material.
 		var invis_mat = preload("res://assets/Textures/invisible_material_3d.tres")
 		var mesh: MeshInstance3D = self.get_parent().get_parent()
 		if mesh:
@@ -274,15 +274,11 @@ func pick_up_object(target: Node3D) -> void:
 			var blueprint: Node3D = self.get_parent().get_parent().get_parent()
 			if blueprint:
 				blueprint.set_piece_placed(i)
-		
-
 	
-
-	
-	# HERE if no workie
+	# Disable the snap zone to not allow picking up of placed pieces..
 	self.enabled = false
 	
-	### END OF CUSTOM STUFFZ ###
+	### End of patch. ###
 
 	# If object picked up then emit signal
 	if is_instance_valid(picked_up_object):
